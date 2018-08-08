@@ -1,0 +1,28 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+group 'Sample-api'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url 'http://repo1.maven.org/maven2'
+    }
+    jcenter()
+}
+jar {
+    from sourceSets.test.output
+}
+dependencies {
+    testCompile('org.testng:testng:6.9.12')
+    testCompile(group: 'com.jayway.restassured', name: 'rest-assured', version: '2.3.3')
+    testCompile(group: 'org.codehaus.jackson', name: 'jackson-jaxrs', version: '1.8.5')
+}
+
+task Sanity(type: Test) {
+
+    useTestNG {
+    }
+}

@@ -1,0 +1,9 @@
+.gradle/
+.idea/
+gradle/
+out/
+build/classes/
+build/libs/
+build/resources/
+build/test-results/
+build/tmp/
